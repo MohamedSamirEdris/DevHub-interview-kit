@@ -49,16 +49,21 @@ Stop: `Ctrl+C` or `npm run interview:down`
 
 ---
 
-### 3. GitHub Codespaces (browser only)
+### 3. GitHub Codespaces (browser only) — recommended for remote candidates
 
 **Best for:** remote candidates without Docker or admin rights.
 
-1. Push the repo to GitHub.
-2. Candidate: **Code → Create codespace on main**.
-3. Codespace auto-runs setup; open port **5173** when prompted.
-4. Log in with demo credentials from the README.
+**You (once):** push repo to GitHub, enable Codespaces, test once — see **[docs/CODESPACES.md](CODESPACES.md)**.
 
-**Requires:** GitHub account. No local installs.
+**Candidate:**
+
+1. Open your repo on GitHub (with access).
+2. **Code → Codespaces → Create codespace on main**.
+3. Wait for setup (~3–8 min first time).
+4. **Ports** tab → open port **5173** in browser.
+5. Log in: `engineer@devhub.local` / `devhub123`.
+
+**Requires:** GitHub account + repo access. No local installs.
 
 ---
 
@@ -73,7 +78,7 @@ Stop: `Ctrl+C` or `npm run interview:down`
 
 **Do not send:** `ANSWERS_GUIDE.md`
 
-**Alternative (Codespaces):** link to repo + “Open in Codespace” instead of Docker.
+**Alternative (Codespaces):** use the message in [docs/CODESPACES.md](CODESPACES.md#part-2--what-to-send-candidates).
 
 ---
 

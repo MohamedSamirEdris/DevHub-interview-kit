@@ -2,25 +2,39 @@
   "name": "DevHub Interview Kit",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
   "features": {
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "16",
+      "password": "postgres"
+    },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
       "moby": true
     }
   },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
   "forwardPorts": [5173, 4000],
   "portsAttributes": {
     "5173": {
-      "label": "DevHub Frontend",
+      "label": "DevHub App",
       "onAutoForward": "openBrowser"
     },
     "4000": {
       "label": "DevHub API"
     }
   },
-  "postCreateCommand": "npm install && npm run interview:detached",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/post-start.sh",
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
     }
   },
   "remoteUser": "node"

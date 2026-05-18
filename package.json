@@ -12,6 +12,7 @@
     "interview:detached": "docker compose up --build -d && echo 'DevHub running at http://localhost:5173'",
     "interview:down": "docker compose down",
     "interview:logs": "docker compose logs -f",
+    "codespace:setup": "bash .devcontainer/post-create.sh",
     "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w @devhub/backend\" \"npm run dev -w @devhub/frontend\"",
     "dev:backend": "npm run dev -w @devhub/backend",
     "dev:frontend": "npm run dev -w @devhub/frontend",

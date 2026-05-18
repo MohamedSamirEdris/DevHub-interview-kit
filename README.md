@@ -12,14 +12,25 @@ This repository is designed for technical interviews (60–90 minutes, live pair
 |----------|-----------------|---------|
 | **You host** (live interview) | Nothing (screen share) | You run `npm run interview` |
 | **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview` |
-| **GitHub Codespaces** | Browser + GitHub | Open repo in Codespace |
+| **GitHub Codespaces** | Browser + GitHub | **Code → Create codespace on main** |
 
 ```bash
+# Docker (local)
 npm run interview
-# → http://localhost:5173  (login: engineer@devhub.local / devhub123)
+
+# Codespaces: push repo to GitHub, then create a codespace (see docs/CODESPACES.md)
 ```
 
-Full interviewer playbook: **[docs/INTERVIEW_SETUP.md](docs/INTERVIEW_SETUP.md)**
+Login: `engineer@devhub.local` / `devhub123`
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/YOUR_ORG/YOUR_REPO?quickstart=1)
+
+Replace `YOUR_ORG/YOUR_REPO` in the badge link after pushing to GitHub.
+
+| Guide | |
+|-------|---|
+| Codespaces (step-by-step) | **[docs/CODESPACES.md](docs/CODESPACES.md)** |
+| All interview options | **[docs/INTERVIEW_SETUP.md](docs/INTERVIEW_SETUP.md)** |
 
 ## Stack
 
