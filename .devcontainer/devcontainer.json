@@ -1,0 +1,27 @@
+{
+  "name": "DevHub Interview Kit",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": true
+    }
+  },
+  "forwardPorts": [5173, 4000],
+  "portsAttributes": {
+    "5173": {
+      "label": "DevHub Frontend",
+      "onAutoForward": "openBrowser"
+    },
+    "4000": {
+      "label": "DevHub API"
+    }
+  },
+  "postCreateCommand": "npm install && npm run interview:detached",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
+  },
+  "remoteUser": "node"
+}

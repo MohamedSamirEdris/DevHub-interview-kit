@@ -1,0 +1,75 @@
+# One-command interview setup: app + databases
+# Usage: npm run interview   (or: docker compose up --build)
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devhub
+    ports:
+      - '5432:5432'
+    volumes:
+      - devhub_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d devhub']
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+  mongo:
+    image: mongo:7
+    ports:
+      - '27017:27017'
+    volumes:
+      - devhub_mongo:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--eval', "db.adminCommand('ping')"]
+      interval: 3s
+      timeout: 10s
+      retries: 15
+      start_period: 10s
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    ports:
+      - '4000:4000'
+    environment:
+      PORT: 4000
+      NODE_ENV: development
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/devhub
+      PG_CONNECTION_STRING: postgresql://postgres:postgres@postgres:5432/devhub
+      MONGODB_URI: mongodb://mongo:27017/devhub
+      JWT_SECRET: devhub-interview-secret-change-in-production
+      JWT_EXPIRES_IN: 24h
+      CORS_ORIGIN: http://localhost:5173
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    ports:
+      - '5173:5173'
+    environment:
+      VITE_API_URL: /api
+      VITE_PROXY_TARGET: http://backend:4000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  devhub_pg:
+  devhub_mongo:

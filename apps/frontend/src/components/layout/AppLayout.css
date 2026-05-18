@@ -1,0 +1,85 @@
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar__logo {
+  color: var(--accent);
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.sidebar__link {
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.sidebar__link:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sidebar__link--active {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent);
+}
+
+.sidebar__footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.sidebar__user {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sidebar__meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0.75rem;
+}
+
+.sidebar__logout {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.sidebar__logout:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow: auto;
+}

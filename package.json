@@ -1,0 +1,41 @@
+{
+  "name": "devhub-interview-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevHub Interview Kit — internal developer portal simulation for technical interviews",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "interview": "bash scripts/interview-start.sh",
+    "interview:detached": "docker compose up --build -d && echo 'DevHub running at http://localhost:5173'",
+    "interview:down": "docker compose down",
+    "interview:logs": "docker compose logs -f",
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w @devhub/backend\" \"npm run dev -w @devhub/frontend\"",
+    "dev:backend": "npm run dev -w @devhub/backend",
+    "dev:frontend": "npm run dev -w @devhub/frontend",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md}\"",
+    "seed": "npm run seed -w @devhub/backend",
+    "db:migrate": "npm run db:migrate -w @devhub/backend",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "postinstall": "npm run build -w @devhub/shared-types"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
