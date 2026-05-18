@@ -11,11 +11,19 @@ Candidates only need a **GitHub account and a browser**. No Docker, PostgreSQL, 
 ```bash
 cd devhub-interview-kit
 git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/MohamedSamirEdris/DevHub-interview-kit.git
+git push -u origin main
+```
+
+Then push the rest of the project:
+
+```bash
 git add .
 git commit -m "Add DevHub interview kit"
-git branch -M main
-git remote add origin https://github.com/YOUR_ORG/devhub-interview-kit.git
-git push -u origin main
+git push
 ```
 
 Use a **private** repo if you do not want `ANSWERS_GUIDE.md` public. Give candidates read access (collaborator or org membership).
@@ -47,12 +55,12 @@ tail -f /tmp/devhub-dev.log
 npm run dev
 ```
 
-### 4. Add an “Open in Codespaces” button (optional)
+### 4. “Open in Codespaces” button
 
-In `README.md`, replace `YOUR_ORG` and `YOUR_REPO`:
+The README includes:
 
 ```markdown
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/YOUR_ORG/YOUR_REPO?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
 ```
 
 ---
@@ -62,7 +70,7 @@ In `README.md`, replace `YOUR_ORG` and `YOUR_REPO`:
 Copy-paste:
 
 > **DevHub interview environment (browser)**  
-> 1. Open: https://github.com/YOUR_ORG/YOUR_REPO  
+> 1. Open: https://github.com/MohamedSamirEdris/DevHub-interview-kit  
 > 2. Click **Code** → **Codespaces** → **Create codespace on main**  
 > 3. Wait for setup to finish (a few minutes the first time)  
 > 4. In the **Ports** tab, open port **5173** in your browser  

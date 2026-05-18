@@ -23,9 +23,7 @@ npm run interview
 
 Login: `engineer@devhub.local` / `devhub123`
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/YOUR_ORG/YOUR_REPO?quickstart=1)
-
-Replace `YOUR_ORG/YOUR_REPO` in the badge link after pushing to GitHub.
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
 
 | Guide | |
 |-------|---|
