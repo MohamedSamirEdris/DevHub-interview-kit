@@ -8,36 +8,36 @@ This repository is designed for technical interviews (60–90 minutes, live pair
 
 **Do not ask candidates to install PostgreSQL or MongoDB.** Use one of these:
 
-| Approach | Candidate needs | Command |
-|----------|-----------------|---------|
-| **You host** (live interview) | Nothing (screen share) | You run `npm run interview` |
-| **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview` |
-| **GitHub Codespaces** | Browser + GitHub | **Code → Create codespace on main** |
+| Approach                        | Candidate needs                                                   | Command                                                                                          |
+| ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **GitHub Codespaces**           | Browser + GitHub access                                           | **[Open Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)** |
+| **You host** (live interview)   | Nothing (screen share)                                            | You run `npm run interview`                                                                      |
+| **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview`                                                                              |
 
 ```bash
 # Docker (local)
 npm run interview
-
-# Codespaces: push repo to GitHub, then create a codespace (see docs/CODESPACES.md)
 ```
 
 Login: `engineer@devhub.local` / `devhub123`
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
 
-| Guide | |
-|-------|---|
-| Codespaces (step-by-step) | **[docs/CODESPACES.md](docs/CODESPACES.md)** |
-| All interview options | **[docs/INTERVIEW_SETUP.md](docs/INTERVIEW_SETUP.md)** |
+Codespaces is preconfigured with Node.js, PostgreSQL, MongoDB, npm dependencies, migrations, seed data, and auto-started dev servers. Candidates can work from the browser without installing anything locally.
+
+| Guide                     |                                                        |
+| ------------------------- | ------------------------------------------------------ |
+| Codespaces (step-by-step) | **[docs/CODESPACES.md](docs/CODESPACES.md)**           |
+| All interview options     | **[docs/INTERVIEW_SETUP.md](docs/INTERVIEW_SETUP.md)** |
 
 ## Stack
 
-| Layer | Technologies |
-|-------|----------------|
-| Frontend | React, TypeScript, Vite, React Query, React Router |
-| Backend | Node.js, Express, TypeScript |
+| Layer     | Technologies                                                            |
+| --------- | ----------------------------------------------------------------------- |
+| Frontend  | React, TypeScript, Vite, React Query, React Router                      |
+| Backend   | Node.js, Express, TypeScript                                            |
 | Databases | PostgreSQL (users, teams, services), MongoDB (metrics, logs, analytics) |
-| Tooling | ESLint, Prettier, npm workspaces, shared types package |
+| Tooling   | ESLint, Prettier, npm workspaces, shared types package                  |
 
 **Recommended for interviews:** Docker Desktop + `npm run interview` (app + databases in one command).
 
@@ -95,22 +95,22 @@ npm run seed
 npm run dev
 ```
 
-| Service | URL |
-|---------|-----|
-| Frontend | http://localhost:5173 |
-| Backend API | http://localhost:4000/api |
+| Service      | URL                              |
+| ------------ | -------------------------------- |
+| Frontend     | http://localhost:5173            |
+| Backend API  | http://localhost:4000/api        |
 | Health check | http://localhost:4000/api/health |
 
 ## Demo accounts
 
 Password for all users: `devhub123`
 
-| Email | Role |
-|-------|------|
-| admin@devhub.local | admin |
+| Email                 | Role     |
+| --------------------- | -------- |
+| admin@devhub.local    | admin    |
 | engineer@devhub.local | engineer |
-| viewer@devhub.local | viewer |
-| lead@devhub.local | engineer |
+| viewer@devhub.local   | viewer   |
+| lead@devhub.local     | engineer |
 
 ## Project structure
 
@@ -134,34 +134,34 @@ devhub-interview-kit/
 
 Copy from `apps/backend/.env.example`:
 
-| Variable | Description |
-|----------|-------------|
-| `PORT` | API port (default `4000`) |
-| `DATABASE_URL` | PostgreSQL connection string |
-| `MONGODB_URI` | MongoDB connection string |
-| `JWT_SECRET` | Token signing secret |
-| `CORS_ORIGIN` | Frontend origin (default `http://localhost:5173`) |
+| Variable       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| `PORT`         | API port (default `4000`)                         |
+| `DATABASE_URL` | PostgreSQL connection string                      |
+| `MONGODB_URI`  | MongoDB connection string                         |
+| `JWT_SECRET`   | Token signing secret                              |
+| `CORS_ORIGIN`  | Frontend origin (default `http://localhost:5173`) |
 
 ### Frontend (`apps/frontend/.env`)
 
-| Variable | Description |
-|----------|-------------|
+| Variable       | Description                                      |
+| -------------- | ------------------------------------------------ |
 | `VITE_API_URL` | API base path (default `/api` — proxied by Vite) |
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run interview` | Start app + databases via Docker (recommended) |
-| `npm run interview:down` | Stop Docker stack |
-| `npm run dev` | Start frontend + backend concurrently (requires local DBs) |
-| `npm run dev:frontend` | Frontend only |
-| `npm run dev:backend` | Backend only |
-| `npm run build` | Build all workspaces |
-| `npm run db:migrate` | Run PostgreSQL migrations |
-| `npm run seed` | Seed PostgreSQL + MongoDB |
-| `npm run lint` | Lint all workspaces |
-| `npm run format` | Format with Prettier |
+| Command                  | Description                                                |
+| ------------------------ | ---------------------------------------------------------- |
+| `npm run interview`      | Start app + databases via Docker (recommended)             |
+| `npm run interview:down` | Stop Docker stack                                          |
+| `npm run dev`            | Start frontend + backend concurrently (requires local DBs) |
+| `npm run dev:frontend`   | Frontend only                                              |
+| `npm run dev:backend`    | Backend only                                               |
+| `npm run build`          | Build all workspaces                                       |
+| `npm run db:migrate`     | Run PostgreSQL migrations                                  |
+| `npm run seed`           | Seed PostgreSQL + MongoDB                                  |
+| `npm run lint`           | Lint all workspaces                                        |
+| `npm run format`         | Format with Prettier                                       |
 
 ## Interview usage
 

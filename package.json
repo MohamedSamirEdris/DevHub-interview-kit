@@ -13,6 +13,8 @@
     "interview:down": "docker compose down",
     "interview:logs": "docker compose logs -f",
     "codespace:setup": "bash .devcontainer/post-create.sh",
+    "codespace:logs": "tail -f /tmp/devhub-dev.log",
+    "codespace:reset": "npm run db:migrate && npm run seed",
     "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w @devhub/backend\" \"npm run dev -w @devhub/frontend\"",
     "dev:backend": "npm run dev -w @devhub/backend",
     "dev:frontend": "npm run dev -w @devhub/frontend",

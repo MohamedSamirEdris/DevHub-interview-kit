@@ -20,12 +20,15 @@
   "portsAttributes": {
     "5173": {
       "label": "DevHub App",
-      "onAutoForward": "openBrowser"
+      "onAutoForward": "openBrowser",
+      "protocol": "http"
     },
     "4000": {
-      "label": "DevHub API"
+      "label": "DevHub API",
+      "protocol": "http"
     }
   },
+  "waitFor": "postCreateCommand",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "postStartCommand": "bash .devcontainer/post-start.sh",
   "customizations": {

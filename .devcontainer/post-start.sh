@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 # Ensure MongoDB is running after codespace sleep/resume
-if docker ps -a --format '{{.Names}}' | grep -qx 'devhub-mongo'; then
+if docker ps -a --format '{{.Names}}' | awk '$0 == "devhub-mongo" { found = 1 } END { exit !found }'; then
   docker start devhub-mongo >/dev/null 2>&1 || true
 fi
 

@@ -4,25 +4,38 @@ Candidates only need a **GitHub account and a browser**. No Docker, PostgreSQL, 
 
 ---
 
+## Candidate quick start
+
+Send candidates this link after you give them repo access:
+
+https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
+
+What happens automatically:
+
+1. GitHub creates a Codespace from `.devcontainer/devcontainer.json`.
+2. Dependencies install with `npm install`.
+3. PostgreSQL and MongoDB start inside the Codespace.
+4. Database migrations and seed data run.
+5. DevHub starts automatically and forwards port **5173**.
+
+Candidate login:
+
+| Field    | Value                                         |
+| -------- | --------------------------------------------- |
+| URL      | Port **5173** in the Codespaces **Ports** tab |
+| Email    | `engineer@devhub.local`                       |
+| Password | `devhub123`                                   |
+
+If the app is not open yet, use **Ports -> 5173 -> Open in Browser**.
+
+---
+
 ## Part 1 — You set up the repo (one time)
 
 ### 1. Push the project to GitHub
 
 ```bash
 cd devhub-interview-kit
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/MohamedSamirEdris/DevHub-interview-kit.git
-git push -u origin main
-```
-
-Then push the rest of the project:
-
-```bash
-git add .
-git commit -m "Add DevHub interview kit"
 git push
 ```
 
@@ -50,10 +63,21 @@ Org admins: **Organization settings → Codespaces** → enable for members.
 If the app is not up yet, open a terminal in the codespace:
 
 ```bash
-tail -f /tmp/devhub-dev.log
-# or restart:
+# See auto-start logs:
+npm run codespace:logs
+
+# Or restart manually:
 npm run dev
 ```
+
+You can also run these from **Terminal -> Run Task...**:
+
+| Task                              | Use                                          |
+| --------------------------------- | -------------------------------------------- |
+| `DevHub: Start app`               | Start frontend and backend manually          |
+| `DevHub: View auto-start logs`    | Follow `/tmp/devhub-dev.log`                 |
+| `DevHub: Reset seed data`         | Re-run migrations and seed data              |
+| `DevHub: Re-run Codespaces setup` | Reinstall, recreate env files, migrate, seed |
 
 ### 4. “Open in Codespaces” button
 
@@ -69,13 +93,14 @@ The README includes:
 
 Copy-paste:
 
-> **DevHub interview environment (browser)**  
-> 1. Open: https://github.com/MohamedSamirEdris/DevHub-interview-kit  
-> 2. Click **Code** → **Codespaces** → **Create codespace on main**  
-> 3. Wait for setup to finish (a few minutes the first time)  
-> 4. In the **Ports** tab, open port **5173** in your browser  
-> 5. Log in: `engineer@devhub.local` / `devhub123`  
-> 6. Read `TASKS.md` for your assigned tasks  
+> **DevHub interview environment (browser)**
+>
+> 1. Open: https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
+> 2. Click **Create codespace** if prompted
+> 3. Wait for setup to finish (a few minutes the first time)
+> 4. In the **Ports** tab, open port **5173** in your browser
+> 5. Log in: `engineer@devhub.local` / `devhub123`
+> 6. Read `TASKS.md` for your assigned tasks
 >
 > No local install required. You need a GitHub account with access to the repo.
 
@@ -83,26 +108,26 @@ Copy-paste:
 
 ## Part 3 — During the interview
 
-| Tip | Detail |
-|-----|--------|
-| **You observe** | Ask them to share screen, or use GitHub’s codespace sharing if your org allows it |
-| **Logs** | Terminal: `tail -f /tmp/devhub-dev.log` |
-| **Restart app** | `npm run dev` |
-| **Reset data** | `npm run db:migrate && npm run seed` |
-| **Stop billing** | Delete or stop codespaces when done (**github.com/codespaces**) |
+| Tip              | Detail                                                                            |
+| ---------------- | --------------------------------------------------------------------------------- |
+| **You observe**  | Ask them to share screen, or use GitHub’s codespace sharing if your org allows it |
+| **Logs**         | Terminal: `npm run codespace:logs`                                                |
+| **Restart app**  | `npm run dev`                                                                     |
+| **Reset data**   | `npm run codespace:reset`                                                         |
+| **Stop billing** | Delete or stop codespaces when done (**github.com/codespaces**)                   |
 
 ---
 
 ## Troubleshooting
 
-| Issue | Fix |
-|-------|-----|
-| Codespaces tab missing | Enable Codespaces in repo/org settings; you need repo access |
-| Setup failed in post-create | Open terminal → `bash .devcontainer/post-create.sh` |
-| Port 5173 not loading | Run `npm run dev`, check Ports tab visibility (Public) |
-| Mongo errors | `docker start devhub-mongo` or re-run `post-create.sh` |
-| Out of memory | Recreate codespace with 8 GB machine |
-| Slow first start | Normal — Postgres + Mongo image + `npm install` |
+| Issue                       | Fix                                                          |
+| --------------------------- | ------------------------------------------------------------ |
+| Codespaces tab missing      | Enable Codespaces in repo/org settings; you need repo access |
+| Setup failed in post-create | Open terminal → `bash .devcontainer/post-create.sh`          |
+| Port 5173 not loading       | Run `npm run dev`, check Ports tab visibility (Public)       |
+| Mongo errors                | `docker start devhub-mongo` or re-run `post-create.sh`       |
+| Out of memory               | Recreate codespace with 8 GB machine                         |
+| Slow first start            | Normal — Postgres + Mongo image + `npm install`              |
 
 ---
 
