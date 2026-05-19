@@ -14,7 +14,7 @@ What happens automatically:
 
 1. GitHub creates a Codespace from `.devcontainer/devcontainer.json`.
 2. Dependencies install with `npm install`.
-3. PostgreSQL and MongoDB start inside the Codespace.
+3. PostgreSQL and MongoDB start as **Docker containers** inside the Codespace (no `ghcr.io` devcontainer “postgres” feature, so pulls are less likely to fail).
 4. Database migrations and seed data run.
 5. DevHub starts automatically and forwards port **5173**.
 
@@ -55,7 +55,7 @@ Org admins: **Organization settings → Codespaces** → enable for members.
 ### 3. Test it yourself
 
 1. On the repo page, click **Code** → **Codespaces** → **Create codespace on main**
-2. Wait ~3–8 minutes (first build installs Postgres, Mongo image, npm, seed data)
+2. Wait ~3–8 minutes (first build pulls Postgres + Mongo images, runs `npm install`, migrates, seeds)
 3. When the editor opens, check the **Ports** tab — port **5173** should appear
 4. Click **Open in Browser** on port 5173
 5. Log in: `engineer@devhub.local` / `devhub123`
@@ -120,14 +120,17 @@ Copy-paste:
 
 ## Troubleshooting
 
-| Issue                       | Fix                                                          |
-| --------------------------- | ------------------------------------------------------------ |
-| Codespaces tab missing      | Enable Codespaces in repo/org settings; you need repo access |
-| Setup failed in post-create | Open terminal → `bash .devcontainer/post-create.sh`          |
-| Port 5173 not loading       | Run `npm run dev`, check Ports tab visibility (Public)       |
-| Mongo errors                | `docker start devhub-mongo` or re-run `post-create.sh`       |
-| Out of memory               | Recreate codespace with 8 GB machine                         |
-| Slow first start            | Normal — Postgres + Mongo image + `npm install`              |
+| Issue                                          | Fix                                                                                         |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Codespaces tab missing                         | Enable Codespaces in repo/org settings; you need repo access                                |
+| “recovery container” / wrong stack             | Delete that codespace, ensure `main` has the latest `.devcontainer`, create a new codespace |
+| Feature `postgres` permission error (old logs) | Fixed in current `main`: Postgres runs via Docker, not the GHCR devcontainer feature        |
+| Setup failed in post-create                    | Open terminal → `bash .devcontainer/post-create.sh`                                         |
+| Port 5173 not loading                          | Run `npm run dev`, check Ports tab visibility (Public)                                      |
+| Postgres errors                                | `docker start devhub-postgres` or re-run `post-create.sh`                                   |
+| Mongo errors                                   | `docker start devhub-mongo` or re-run `post-create.sh`                                      |
+| Out of memory                                  | Recreate codespace with 8 GB machine                                                        |
+| Slow first start                               | Normal — Postgres + Mongo image + `npm install`                                             |
 
 ---
 

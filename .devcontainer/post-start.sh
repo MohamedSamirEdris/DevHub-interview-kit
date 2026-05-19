@@ -4,7 +4,10 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-# Ensure MongoDB is running after codespace sleep/resume
+# Ensure databases are running after codespace sleep/resume
+if docker ps -a --format '{{.Names}}' | awk '$0 == "devhub-postgres" { found = 1 } END { exit !found }'; then
+  docker start devhub-postgres >/dev/null 2>&1 || true
+fi
 if docker ps -a --format '{{.Names}}' | awk '$0 == "devhub-mongo" { found = 1 } END { exit !found }'; then
   docker start devhub-mongo >/dev/null 2>&1 || true
 fi
