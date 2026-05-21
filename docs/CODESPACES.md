@@ -6,9 +6,9 @@ Candidates only need a **GitHub account and a browser**. No Docker, PostgreSQL, 
 
 ## Candidate quick start
 
-Send candidates this link after you give them repo access:
+Send candidates this link after you give them repo access (branch **`interview`** — no answers guide):
 
-https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
+https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1
 
 What happens automatically:
 
@@ -39,9 +39,7 @@ cd devhub-interview-kit
 git push
 ```
 
-Use a **private** repo if you do not want `ANSWERS_GUIDE.md` public. Give candidates read access (collaborator or org membership).
-
-**Before pushing:** confirm `ANSWERS_GUIDE.md` is not shared with candidates (keep repo private, or remove that file from the remote).
+Use a **private** repo. Candidates use the **`interview`** branch (no `ANSWERS_GUIDE.md`). Interviewers keep solutions on **`main`**.
 
 ### 2. Enable Codespaces on the repository
 
@@ -54,7 +52,7 @@ Org admins: **Organization settings → Codespaces** → enable for members.
 
 ### 3. Test it yourself
 
-1. On the repo page, click **Code** → **Codespaces** → **Create codespace on main**
+1. Test the **candidate** flow: **Code** → **Codespaces** → branch **`interview`** → **Create codespace**
 2. Wait ~3–8 minutes (first build pulls Postgres + Mongo images, runs `npm install`, migrates, seeds)
 3. When the editor opens, check the **Ports** tab — port **5173** should appear
 4. Click **Open in Browser** on port 5173
@@ -84,7 +82,7 @@ You can also run these from **Terminal -> Run Task...**:
 The README includes:
 
 ```markdown
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)
 ```
 
 ---
@@ -95,7 +93,7 @@ Copy-paste:
 
 > **DevHub interview environment (browser)**
 >
-> 1. Open: https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
+> 1. Open: https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1
 > 2. Click **Create codespace** if prompted
 > 3. Wait for setup to finish (a few minutes the first time)
 > 4. In the **Ports** tab, open port **5173** in your browser

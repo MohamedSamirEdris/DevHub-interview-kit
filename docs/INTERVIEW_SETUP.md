@@ -58,7 +58,7 @@ Stop: `Ctrl+C` or `npm run interview:down`
 **Candidate:**
 
 1. Open your repo on GitHub (with access).
-2. **Code → Codespaces → Create codespace on main**.
+2. **Code → Codespaces → branch `interview` → Create codespace**.
 3. Wait for setup (~3–8 min first time).
 4. **Ports** tab → open port **5173** in browser.
 5. Log in: `engineer@devhub.local` / `devhub123`.
@@ -76,9 +76,7 @@ Stop: `Ctrl+C` or `npm run interview:down`
 > 3. Open http://localhost:5173 — login: `engineer@devhub.local` / `devhub123`  
 > 4. Work from `TASKS.md` (tasks E1, E2, … as agreed).
 
-**Do not send:** `ANSWERS_GUIDE.md`
-
-**Alternative (Codespaces):** use the message in [docs/CODESPACES.md](CODESPACES.md#part-2--what-to-send-candidates).
+**Codespaces:** use the **`interview`** branch link in [docs/CODESPACES.md](CODESPACES.md#part-2--what-to-send-candidates) (candidates never need `main` or `ANSWERS_GUIDE.md`).
 
 ---
 

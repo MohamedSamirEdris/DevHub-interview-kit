@@ -4,13 +4,22 @@ A realistic internal developer portal simulation inspired by [Backstage](https:/
 
 This repository is designed for technical interviews (60–90 minutes, live pairing, or take-home) across frontend, backend, full-stack, debugging, and architecture skills.
 
+## Branches
+
+| Branch | Who | Contents |
+| ------ | --- | -------- |
+| **`main`** | Interviewers | Full kit + `ANSWERS_GUIDE.md` |
+| **`interview`** | Candidates | Same app and `TASKS.md`, **no** `ANSWERS_GUIDE.md` — use for Codespaces |
+
+Send candidates the **`interview`** branch Codespace link (below), not `main`.
+
 ## Interview quick start (interviewers)
 
 **Do not ask candidates to install PostgreSQL or MongoDB.** Use one of these:
 
 | Approach                        | Candidate needs                                                   | Command                                                                                          |
 | ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **GitHub Codespaces**           | Browser + GitHub access                                           | **[Open Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)** |
+| **GitHub Codespaces** (candidates) | Browser + repo access                                        | **[Open candidate Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)** (`interview` branch) |
 | **You host** (live interview)   | Nothing (screen share)                                            | You run `npm run interview`                                                                      |
 | **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview`                                                                              |
 
@@ -21,7 +30,7 @@ npm run interview
 
 Login: `engineer@devhub.local` / `devhub123`
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)
 
 Codespaces is preconfigured with Node.js, PostgreSQL, MongoDB, npm dependencies, migrations, seed data, and auto-started dev servers. Candidates can work from the browser without installing anything locally.
 
@@ -165,10 +174,10 @@ Copy from `apps/backend/.env.example`:
 
 ## Interview usage
 
-1. Share the repo with candidates (exclude `ANSWERS_GUIDE.md` for live interviews).
-2. Point candidates to `TASKS.md` and `docs/ONBOARDING.md`.
+1. Give candidates access to the repo and the **`interview`** branch (Codespaces link above).
+2. Assign tasks from `TASKS.md` on that branch — they do not get `ANSWERS_GUIDE.md`.
 3. Observe how they navigate setup, reproduce issues, and communicate trade-offs.
-4. Use `ANSWERS_GUIDE.md` to score and debrief.
+4. On **`main`**, use `ANSWERS_GUIDE.md` to score and debrief.
 
 Suggested time boxes:
 
