@@ -4,26 +4,26 @@ A realistic internal developer portal simulation inspired by [Backstage](https:/
 
 This repository is designed for technical interviews (60–90 minutes, live pairing, or take-home) across frontend, backend, full-stack, debugging, and architecture skills.
 
-## Interview quick start (interviewers)
+## Interview quick start (candidates)
 
-**Do not ask candidates to install PostgreSQL or MongoDB.** Use one of these:
+**No local install required.** Open a Codespace on this branch (`interview`):
 
-| Approach                        | Candidate needs                                                   | Command                                                                                          |
-| ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **GitHub Codespaces**           | Browser + GitHub access                                           | **[Open Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)** |
-| **You host** (live interview)   | Nothing (screen share)                                            | You run `npm run interview`                                                                      |
-| **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview`                                                                              |
+| Approach              | You need              | Link                                                                                                                          |
+| --------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **GitHub Codespaces** | Browser + repo access | **[Open Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)** |
 
 ```bash
-# Docker (local)
-npm run interview
+# After the Codespace opens (if the app is not already running):
+npm run dev
 ```
+
+Then open port **5173** in the **Ports** tab (not `localhost` on your laptop).
 
 Login: `engineer@devhub.local` / `devhub123`
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)
 
-Codespaces is preconfigured with Node.js, PostgreSQL, MongoDB, npm dependencies, migrations, seed data, and auto-started dev servers. Candidates can work from the browser without installing anything locally.
+Work from **`TASKS.md`**. Setup includes Node.js, PostgreSQL, MongoDB, dependencies, migrations, and seed data.
 
 | Guide                     |                                                        |
 | ------------------------- | ------------------------------------------------------ |
@@ -123,8 +123,7 @@ devhub-interview-kit/
 │   └── shared-types/      # Shared TypeScript contracts
 ├── docs/                  # Onboarding & architecture notes
 ├── scripts/setup.sh
-├── TASKS.md               # Interview tasks (candidates)
-├── ANSWERS_GUIDE.md       # Interviewer-only solutions
+├── TASKS.md               # Interview tasks
 └── package.json           # npm workspaces root
 ```
 
@@ -165,10 +164,10 @@ Copy from `apps/backend/.env.example`:
 
 ## Interview usage
 
-1. Share the repo with candidates (exclude `ANSWERS_GUIDE.md` for live interviews).
-2. Point candidates to `TASKS.md` and `docs/ONBOARDING.md`.
-3. Observe how they navigate setup, reproduce issues, and communicate trade-offs.
-4. Use `ANSWERS_GUIDE.md` to score and debrief.
+1. Read `TASKS.md` for your assigned tasks.
+2. Reproduce each issue in the app (browser console, network tab, logs).
+3. Fix with minimal, targeted changes and explain your approach.
+4. See `docs/ONBOARDING.md` for portal context.
 
 Suggested time boxes:
 

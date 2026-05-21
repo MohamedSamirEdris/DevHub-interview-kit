@@ -1,14 +1,14 @@
-# GitHub Codespaces setup (interviewers)
+# GitHub Codespaces (candidate branch: `interview`)
 
-Candidates only need a **GitHub account and a browser**. No Docker, PostgreSQL, or MongoDB on their laptop.
+You only need a **GitHub account and a browser**. No Docker, PostgreSQL, or MongoDB on your laptop.
 
 ---
 
-## Candidate quick start
+## Quick start
 
-Send candidates this link after you give them repo access:
+Open a Codespace on the **`interview`** branch:
 
-https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
+https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1
 
 What happens automatically:
 
@@ -30,31 +30,9 @@ If the app is not open yet, use **Ports -> 5173 -> Open in Browser**.
 
 ---
 
-## Part 1 — You set up the repo (one time)
+## Setup steps
 
-### 1. Push the project to GitHub
-
-```bash
-cd devhub-interview-kit
-git push
-```
-
-Use a **private** repo if you do not want `ANSWERS_GUIDE.md` public. Give candidates read access (collaborator or org membership).
-
-**Before pushing:** confirm `ANSWERS_GUIDE.md` is not shared with candidates (keep repo private, or remove that file from the remote).
-
-### 2. Enable Codespaces on the repository
-
-1. Open the repo on GitHub → **Settings**
-2. **Code and automation** → **Codespaces**
-3. Ensure Codespaces is allowed for the repo/org
-4. (Recommended) Set default machine: **4 cores, 8 GB RAM** — matches `.devcontainer/devcontainer.json`
-
-Org admins: **Organization settings → Codespaces** → enable for members.
-
-### 3. Test it yourself
-
-1. On the repo page, click **Code** → **Codespaces** → **Create codespace on main**
+1. Use the link above, or on GitHub: **Code** → **Codespaces** → branch **`interview`** → **Create codespace**
 2. Wait ~3–8 minutes (first build pulls Postgres + Mongo images, runs `npm install`, migrates, seeds)
 3. When the editor opens, check the **Ports** tab — port **5173** should appear
 4. Click **Open in Browser** on port 5173
@@ -79,34 +57,7 @@ You can also run these from **Terminal -> Run Task...**:
 | `DevHub: Reset seed data`         | Re-run migrations and seed data              |
 | `DevHub: Re-run Codespaces setup` | Reinstall, recreate env files, migrate, seed |
 
-### 4. “Open in Codespaces” button
-
-The README includes:
-
-```markdown
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1)
-```
-
----
-
-## Part 2 — What to send candidates
-
-Copy-paste:
-
-> **DevHub interview environment (browser)**
->
-> 1. Open: https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit?quickstart=1
-> 2. Click **Create codespace** if prompted
-> 3. Wait for setup to finish (a few minutes the first time)
-> 4. In the **Ports** tab, open port **5173** in your browser
-> 5. Log in: `engineer@devhub.local` / `devhub123`
-> 6. Read `TASKS.md` for your assigned tasks
->
-> No local install required. You need a GitHub account with access to the repo.
-
----
-
-## Part 3 — During the interview
+## During the session
 
 | Tip              | Detail                                                                            |
 | ---------------- | --------------------------------------------------------------------------------- |
@@ -114,7 +65,7 @@ Copy-paste:
 | **Logs**         | Terminal: `npm run codespace:logs`                                                |
 | **Restart app**  | `npm run dev`                                                                     |
 | **Reset data**   | `npm run codespace:reset`                                                         |
-| **Stop billing** | Delete or stop codespaces when done (**github.com/codespaces**)                   |
+| **Stop billing** | Your interviewer stops/deletes codespaces when done                               |
 
 ---
 

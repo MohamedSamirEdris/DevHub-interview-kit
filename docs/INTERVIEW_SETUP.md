@@ -1,6 +1,6 @@
-# Interviewer setup guide
+# Candidate setup guide (`interview` branch)
 
-Goal: **no PostgreSQL/MongoDB installs on the candidate machine** and minimal time lost to setup.
+Goal: **no PostgreSQL/MongoDB installs on your machine** — use Codespaces or Docker as directed by your interviewer.
 
 ---
 
@@ -49,45 +49,24 @@ Stop: `Ctrl+C` or `npm run interview:down`
 
 ---
 
-### 3. GitHub Codespaces (browser only) — recommended for remote candidates
+### 3. GitHub Codespaces (browser only) — recommended
 
-**Best for:** remote candidates without Docker or admin rights.
-
-**You (once):** push repo to GitHub, enable Codespaces, test once — see **[docs/CODESPACES.md](CODESPACES.md)**.
-
-**Candidate:**
-
-1. Open your repo on GitHub (with access).
-2. **Code → Codespaces → Create codespace on main**.
-3. Wait for setup (~3–8 min first time).
-4. **Ports** tab → open port **5173** in browser.
-5. Log in: `engineer@devhub.local` / `devhub123`.
+1. Open **[docs/CODESPACES.md](CODESPACES.md)** or use the Codespaces link in the README (branch **`interview`**).
+2. Wait for setup (~3–8 min first time).
+3. **Ports** tab → open port **5173** in browser.
+4. Log in: `engineer@devhub.local` / `devhub123`.
+5. Work from **`TASKS.md`**.
 
 **Requires:** GitHub account + repo access. No local installs.
 
 ---
 
-## What to send candidates
+## Your checklist
 
-**Minimum message:**
-
-> 1. Install Docker Desktop and start it.  
-> 2. Clone the repo, run `npm run interview`.  
-> 3. Open http://localhost:5173 — login: `engineer@devhub.local` / `devhub123`  
-> 4. Work from `TASKS.md` (tasks E1, E2, … as agreed).
-
-**Do not send:** `ANSWERS_GUIDE.md`
-
-**Alternative (Codespaces):** use the message in [docs/CODESPACES.md](CODESPACES.md#part-2--what-to-send-candidates).
-
----
-
-## Before the interview (your checklist)
-
-- [ ] Run `npm run interview` once on your machine and log in
-- [ ] Pick tasks from `TASKS.md` and note expected bugs in `ANSWERS_GUIDE.md`
-- [ ] Decide: you host vs candidate runs Docker vs Codespaces
-- [ ] Share only `TASKS.md` + README (not answers)
+- [ ] Open Codespace on branch **`interview`** (or run Docker if instructed)
+- [ ] Confirm port **5173** opens the app
+- [ ] Read assigned tasks in `TASKS.md`
+- [ ] Reproduce each issue before fixing
 
 ---
 

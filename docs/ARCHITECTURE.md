@@ -42,4 +42,4 @@ DevHub is a simplified internal developer portal. Teams own services; operators 
 
 ## Known technical debt
 
-See `TASKS.md` for interview-sized improvements. Intentional issues exist for evaluation — interviewers use `ANSWERS_GUIDE.md`.
+See `TASKS.md` for interview-sized improvements. Intentional issues exist for evaluation.
