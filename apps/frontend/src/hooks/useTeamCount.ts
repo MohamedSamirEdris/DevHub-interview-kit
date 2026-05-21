@@ -13,7 +13,7 @@ export function useTeamCount() {
       }
     });
 
-    // BUG (Medium): stale closure / missing cleanup — cancelled never set true on unmount
+    // BUG
   }, []);
 
   return count;

@@ -9,7 +9,7 @@ interface ImportMeta {
 }
 
 // Partial migration: custom element used before design-system rollout
-// BUG (Easy/TS): non-standard element — triggers ESLint/TS warnings intentionally
+// BUG
 declare namespace JSX {
   interface IntrinsicElements {
     'motion-root': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;

@@ -37,7 +37,7 @@ export async function login(email: string, password: string): Promise<LoginRespo
   const valid = await bcrypt.compare(password, row.password_hash);
   if (!valid) return null;
 
-  // BUG (Medium): fire-and-forget last_login update — race if multiple logins
+  // BUG
   query('UPDATE users SET last_login = NOW() WHERE id = $1', [row.id]);
 
   const user = mapUser(row);

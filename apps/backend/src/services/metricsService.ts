@@ -48,7 +48,7 @@ export async function searchLogs(
 ): Promise<LogEntry[]> {
   const db = await getMongoDb();
 
-  // BUG (Medium): NoSQL injection — passes raw user string into $where
+  // BUG
   const filter: Record<string, unknown> = {
     $where: `this.message.indexOf('${queryText}') >= 0`,
   };
@@ -84,7 +84,7 @@ export async function getAnalytics(limit = 50): Promise<AnalyticsEvent[]> {
   }));
 }
 
-/** BUG (Hard): synchronous CPU-heavy work blocks event loop */
+/** BUG */
 export function computeExpensivePercentile(values: number[], p: number): number {
   let sorted = values;
   for (let i = 0; i < sorted.length; i++) {

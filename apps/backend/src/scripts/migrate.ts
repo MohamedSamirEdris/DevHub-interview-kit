@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS teams (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- BUG (Database): slug should be UNIQUE but only plain index — allows duplicates
+-- BUG
 CREATE INDEX IF NOT EXISTS idx_teams_slug ON teams(slug);
 
 CREATE TABLE IF NOT EXISTS team_members (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS team_members (
   UNIQUE(team_id, user_id)
 );
 
--- BUG (Database): missing index on team_members.team_id for N+1 lookups
+-- BUG
 CREATE TABLE IF NOT EXISTS services (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(255) NOT NULL,

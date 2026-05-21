@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
     setUser(null);
-    // BUG (Easy): missing await on optional server-side revoke (not implemented)
+    // BUG
   }, []);
 
   return (

@@ -19,12 +19,12 @@ router.post('/login', async (req: Request, res: Response) => {
 
   const result = await authService.login(parsed.data.email, parsed.data.password);
   if (!result) {
-    // BUG (Easy): should be 401, returns 200 with error body sometimes inconsistent
+    // BUG
     res.status(401).json({ error: 'Invalid credentials' });
     return;
   }
 
-  // BUG (Easy): wrong status for successful auth in some clients expecting 200 — actually 200 is fine
+  // BUG
   // Inconsistent wrapper: returns { data } here but other routes use raw object
   res.status(200).json({ data: result });
 });

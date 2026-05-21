@@ -24,7 +24,7 @@ function mapTeam(row: DbTeam): Team {
 }
 
 export async function listTeams(): Promise<Team[]> {
-  // BUG (Database): missing index on teams.slug — full scan acceptable at seed scale but slow at prod scale
+  // BUG
   const result = await query<DbTeam>(
   'SELECT * FROM teams ORDER BY name ASC',
   );
@@ -36,7 +36,7 @@ export async function getTeamById(id: string): Promise<TeamDetail | null> {
   const team = teamResult.rows[0];
   if (!team) return null;
 
-  // BUG (Medium): N+1 — fetches members one query per member instead of JOIN
+  // BUG
   const membersResult = await query<{ id: string; team_id: string; user_id: string }>(
     'SELECT id, team_id, user_id FROM team_members WHERE team_id = $1',
     [id],
@@ -74,7 +74,7 @@ export async function getTeamById(id: string): Promise<TeamDetail | null> {
 }
 
 export async function searchTeams(searchTerm: string): Promise<Team[]> {
-  // BUG (Medium): SQL injection via string interpolation
+  // BUG
   const result = await query<DbTeam>(
     `SELECT * FROM teams WHERE name ILIKE '%${searchTerm}%' OR slug ILIKE '%${searchTerm}%'`,
   );

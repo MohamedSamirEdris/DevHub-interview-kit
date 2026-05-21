@@ -8,7 +8,7 @@ router.use(authMiddleware);
 
 router.get('/', async (_req: AuthRequest, res: Response) => {
   const teams = await teamService.listTeams();
-  // BUG (Medium): inconsistent response — no data wrapper
+  // BUG
   res.json(teams);
 });
 

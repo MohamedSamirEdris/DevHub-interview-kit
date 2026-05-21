@@ -4,6 +4,8 @@ Work through these tasks as you would in a real engineering sprint. Reproduce is
 
 **Do not expect every bug to surface immediately** — explore setup, navigation, network tab, and server logs.
 
+Reproduce each symptom before changing code. Do not rely on `BUG` markers in source — they are for maintainers only and carry no explanation.
+
 ---
 
 ## Easy

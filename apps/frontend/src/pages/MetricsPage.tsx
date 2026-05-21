@@ -20,7 +20,7 @@ export function MetricsPage() {
   const summary = summaryQuery.data;
   const metrics = metricsQuery.data ?? [];
 
-  // BUG (Hard): recomputes chart data every render
+  // BUG
   const chartPoints = metrics.flatMap((m) =>
     m.points.map((p) => ({
       label: m.serviceName,

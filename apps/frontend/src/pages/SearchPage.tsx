@@ -11,7 +11,7 @@ export function SearchPage() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'all' | 'teams' | 'services'>('all');
 
-  // BUG (Medium): infinite rerender when query non-empty — missing dependency array discipline
+  // BUG
   useEffect(() => {
     if (!query.trim()) {
       setTeamResults([]);

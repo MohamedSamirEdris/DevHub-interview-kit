@@ -15,7 +15,7 @@ export function SettingsPage() {
         <form className="settings-form">
           <label>
             Display name
-            {/* BUG (Easy): uncontrolled defaultValue — won't sync if user loads async */}
+            {/* BUG */}
             <input type="text" defaultValue={user?.name} />
           </label>
           <label>
@@ -29,7 +29,7 @@ export function SettingsPage() {
           <button type="button">Save changes</button>
         </form>
         <p className="settings-note">
-          {/* BUG (Easy): wrong conditional — shows message when user EXISTS */}
+          {/* BUG */}
           {!user && <span className="error-text">No user session detected.</span>}
         </p>
       </section>

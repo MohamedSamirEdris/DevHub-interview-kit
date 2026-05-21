@@ -4,7 +4,7 @@ import { fetchServices } from '../api/services';
 import type { Service, ServiceStatus } from '@devhub/shared-types';
 import { ServiceStatusBadge } from '../components/services/ServiceStatusBadge';
 
-// BUG (Hard): generates large list for demo — no virtualization
+// BUG
 function generateDisplayRows(services: Service[]): Service[] {
   const expanded: Service[] = [];
   for (let i = 0; i < 8; i++) {
@@ -31,12 +31,12 @@ export function ServicesPage() {
         status: statusFilter || undefined,
         limit: 100,
       } as never),
-    // BUG (Medium): refetches on every mount + window focus duplicates calls
+    // BUG
     refetchOnMount: 'always',
     refetchOnWindowFocus: true,
   });
 
-  // BUG (Medium): duplicate fetch on button — bypasses cache
+  // BUG
   const handleRefresh = () => {
     refetch();
     fetchServices({ limit: 100 });
@@ -47,7 +47,7 @@ export function ServicesPage() {
     [data],
   );
 
-  // BUG (Hard): expensive filter recalculated every render without useMemo
+  // BUG
   const filteredRows = displayRows.filter((row) => {
     if (statusFilter && row.status !== statusFilter) return false;
     if (search && !row.name.toLowerCase().includes(search.toLowerCase())) return false;
@@ -102,6 +102,7 @@ export function ServicesPage() {
           </thead>
           <tbody>
             {filteredRows.map((service, index) => (
+              // BUG
               <tr>
                 <td>{service.name}</td>
                 <td>{service.teamName ?? service.teamId}</td>

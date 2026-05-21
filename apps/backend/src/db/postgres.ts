@@ -5,7 +5,7 @@ let pool: Pool | null = null;
 
 export function getPool(): Pool {
   if (!pool) {
-    // BUG (Easy): legacy path uses wrong env key in postgres-legacy.ts
+    // BUG
     pool = new Pool({
       connectionString: env.databaseUrl,
       max: 20,

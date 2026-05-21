@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { EventEmitter } from 'events';
 
-// BUG (Hard): global emitter grows listeners if hot-reloaded in dev without cleanup
+// BUG
 export const requestEvents = new EventEmitter();
 requestEvents.setMaxListeners(0);
 

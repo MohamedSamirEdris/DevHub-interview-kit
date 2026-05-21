@@ -18,7 +18,7 @@ export function authMiddleware(req: AuthRequest, res: Response, next: NextFuncti
 
   try {
     const payload = jwt.verify(token, env.jwtSecret) as User & { iat?: number };
-    // BUG (Hard): does not validate exp claim explicitly; accepts malformed clock skew
+    // BUG
   req.user = {
       id: payload.id,
       email: payload.email,
@@ -30,7 +30,7 @@ export function authMiddleware(req: AuthRequest, res: Response, next: NextFuncti
     next();
   } catch {
     res.status(401).json({ error: 'Invalid token' });
-    // BUG (Easy): missing return — falls through (mitigated by no code after, but pattern is bad)
+    // BUG
   }
 }
 

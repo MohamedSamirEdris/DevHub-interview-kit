@@ -13,7 +13,7 @@ export function registerPlugin(plugin: DevHubPlugin): void {
   plugins.push(plugin);
 }
 
-// BUG (Senior): plugins registered after app init are silently ignored — no lifecycle hooks
+// BUG
 export async function loadPlugins(app: Express): Promise<void> {
   for (const plugin of plugins) {
     await plugin.register(app);

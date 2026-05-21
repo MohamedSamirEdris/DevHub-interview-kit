@@ -15,7 +15,7 @@ export const env = {
   port: parseInt(process.env.PORT || '4000', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
   databaseUrl: requireEnv('DATABASE_URL'),
-  // BUG (Easy): typo — some code reads PG_CONECTION_STRING instead of PG_CONNECTION_STRING
+  // BUG
   pgConnectionString: process.env.PG_CONNECTION_STRING,
   mongoUri: requireEnv('MONGODB_URI'),
   jwtSecret: requireEnv('JWT_SECRET', 'devhub-interview-secret'),

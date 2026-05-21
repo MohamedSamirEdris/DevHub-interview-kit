@@ -20,10 +20,10 @@ export function LoginPage() {
     setSubmitting(true);
 
     try {
-      // BUG (Easy): uses `let` where reassignment never happens
+      // BUG
       let credentials = { email, password };
       login(credentials);
-      // BUG (Easy): missing await — navigates before login completes, race on slow network
+      // BUG
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
     } finally {

@@ -15,7 +15,7 @@ export function createApp() {
   app.use(express.json());
   app.use(requestLogger);
 
-  // BUG (Medium): routes mounted before CORS — preflight on some paths may fail in strict browsers
+  // BUG
   app.use('/api/auth', authRoutes);
   app.use('/api/teams', teamsRoutes);
   app.use('/api/services', servicesRoutes);

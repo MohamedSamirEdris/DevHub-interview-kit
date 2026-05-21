@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 
 /**
  * @deprecated Use db/postgres.ts — kept for partial migration
- * BUG (Easy): env typo PG_CONECTION_STRING (missing N)
+ * BUG
  */
 export function getLegacyPool(): Pool {
   const connectionString =

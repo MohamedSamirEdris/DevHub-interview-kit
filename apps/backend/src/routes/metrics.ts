@@ -35,7 +35,7 @@ router.get('/percentile', async (req: AuthRequest, res: Response) => {
   const values = raw.split(',').map(Number);
   const p = parseInt(req.query.p as string, 10) || 95;
 
-  // BUG (Hard): blocks event loop on large arrays
+  // BUG
   const result = metricsService.computeExpensivePercentile(values, p);
   res.json({ data: { percentile: p, value: result } });
 });

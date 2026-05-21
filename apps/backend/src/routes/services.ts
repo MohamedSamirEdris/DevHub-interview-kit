@@ -8,7 +8,7 @@ router.use(authMiddleware);
 
 router.get('/', async (req: AuthRequest, res: Response) => {
   const page = parseInt(req.query.page as string, 10) || 1;
-  // BUG (Medium): no max limit cap — client can request limit=999999
+  // BUG
   const limit = parseInt(req.query.limit as string, 10) || 20;
 
   const result = await serviceCatalog.listServices(

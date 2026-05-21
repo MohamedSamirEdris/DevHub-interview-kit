@@ -2,7 +2,7 @@ import type { Team, TeamDetail } from '@devhub/shared-types';
 import { apiFetch } from './client';
 
 export async function fetchTeams(): Promise<Team[]> {
-  // BUG (Medium): teams endpoint returns raw array, not { data } — works but inconsistent
+  // BUG
   return apiFetch<Team[]>('/teams');
 }
 

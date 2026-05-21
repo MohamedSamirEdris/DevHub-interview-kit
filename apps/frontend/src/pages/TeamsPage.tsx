@@ -19,7 +19,7 @@ export function TeamsPage() {
     enabled: !!selectedId,
   });
 
-  // BUG (Easy): mutates React Query cache array in place
+  // BUG
   const sortedTeams = teams ? sortTeamsInPlace(teams, sortOrder) : [];
 
   if (error) {
@@ -46,6 +46,7 @@ export function TeamsPage() {
 
       <div className="teams-grid">
         {sortedTeams.map((team) => (
+          // BUG
           <TeamCard
             team={team}
             selected={selectedId === team.id}

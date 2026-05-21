@@ -61,7 +61,7 @@ export async function listServices(
 
   const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
 
-  // BUG (Database): LEFT JOIN without index on team_id; duplicates team_name denormalized in services
+  // BUG
   const countResult = await query<{ count: string }>(
     `SELECT COUNT(*) as count FROM services s ${where}`,
     params,

@@ -4,6 +4,8 @@
 
 This guide maps tasks to intentional issues, discovery hints, and acceptable solutions.
 
+**Source code:** Interview spots are marked with `// BUG` (or `{/* BUG */}`) only — no description in code. Use this guide for task mapping, hints, and grading. Candidates work from `TASKS.md` and reproduction, not from inline explanations.
+
 ---
 
 ## How to use this guide
