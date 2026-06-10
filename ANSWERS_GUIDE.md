@@ -103,7 +103,34 @@ This guide maps tasks to intentional issues, discovery hints, and acceptable sol
 
 **Location:** `apps/backend/src/routes/auth.ts`
 
-**Note:** Login already returns 401 on failure — minor inconsistency is `{ data }` wrapper vs other routes (see M6). If candidate reports 200 on failure, verify they're not looking at network preview vs handler.
+**Issues:**
+1. Failed login should return **401 Unauthorized** with a consistent JSON error body (not 200, not ambiguous shapes).
+2. Success response should match the API envelope used elsewhere (`{ data: { token, user } }` or documented auth shape).
+3. Align with **M6** — teams route returns a raw array while auth may use a different pattern.
+
+**Discovery:** Network tab on bad password — check status code and body. Compare with `/api/teams` response shape.
+
+**Recommended fix (failure path):**
+```ts
+return res.status(401).json({
+  error: { code: 'INVALID_CREDENTIALS', message: 'Invalid email or password' },
+});
+```
+
+**Recommended fix (success path):**
+```ts
+return res.status(200).json({
+  data: { token, user: { id, email, name, role } },
+});
+```
+
+Update `AuthContext` / `LoginPage` client parsing if envelope changes.
+
+**Strong:** Mentions RFC 7235, no user enumeration (same message for unknown email vs bad password), rate limiting (B5).
+
+**Weak:** Changes message text only; leaves 200 on failure or inconsistent envelope.
+
+**Note:** If candidate reports 200 on failure, verify they're hitting the login handler — not a proxy error page or cached response.
 
 ---
 

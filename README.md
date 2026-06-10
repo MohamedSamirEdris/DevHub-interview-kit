@@ -8,10 +8,11 @@ This repository is designed for technical interviews (60–90 minutes, live pair
 
 | Branch | Who | Contents |
 | ------ | --- | -------- |
-| **`main`** | Interviewers | Full kit + `ANSWERS_GUIDE.md` |
-| **`interview`** | Candidates | Same app and `TASKS.md`, **no** `ANSWERS_GUIDE.md` — use for Codespaces |
+| **`main`** | Interviewers | Full kit + `ANSWERS_GUIDE.md` + `ANSWERS_GUIDE_LEAD.md` |
+| **`interview`** | IC candidates | `TASKS.md`, **no** answer guides — Codespaces |
+| **`interview-lead`** | Tech lead candidates | `TASKS_LEAD.md` (coding + **deployment** practical), **no** answer guides |
 
-Send candidates the **`interview`** branch Codespace link (below), not `main`.
+Send IC candidates **`interview`** and tech leads **`interview-lead`** — not `main`.
 
 ## Interview quick start (interviewers)
 
@@ -19,7 +20,8 @@ Send candidates the **`interview`** branch Codespace link (below), not `main`.
 
 | Approach                        | Candidate needs                                                   | Command                                                                                          |
 | ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **GitHub Codespaces** (candidates) | Browser + repo access                                        | **[Open candidate Codespace](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)** (`interview` branch) |
+| **GitHub Codespaces** (IC) | Browser + repo access | **[Open IC Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=interview&repo=MohamedSamirEdris/DevHub-interview-kit)** |
+| **GitHub Codespaces** (tech lead) | Browser + repo access | **[Open lead Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=interview-lead&repo=MohamedSamirEdris/DevHub-interview-kit)** |
 | **You host** (live interview)   | Nothing (screen share)                                            | You run `npm run interview`                                                                      |
 | **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview`                                                                              |
 
@@ -181,9 +183,10 @@ Copy from `apps/backend/.env.example`:
 
 Suggested time boxes:
 
-- **60 min:** Easy + 1–2 Medium tasks
-- **90 min:** Medium focus + 1 Hard task
-- **Take-home:** Full TASKS.md over 4–8 hours
+- **60 min (IC):** Easy + 1–2 Medium tasks (`TASKS.md`)
+- **90 min (IC):** Medium focus + 1 Hard task
+- **90–120 min (tech lead):** `TASKS_LEAD.md` — 2 coding + 2 deployment + 2 discussion
+- **Take-home:** Full `TASKS.md` or `TASKS_LEAD.md` over 4–8 hours
 
 ## Troubleshooting
 
