@@ -6,9 +6,12 @@ Candidates only need a **GitHub account and a browser**. No Docker, PostgreSQL, 
 
 ## Candidate quick start
 
-Send candidates this link after you give them repo access (branch **`interview`** — no answers guide):
+Send candidates the right branch (no answer guides on either):
 
-https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1
+| Role            | Branch           | Codespaces link                                                                                                        |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| IC / full-stack | `interview`      | https://github.com/codespaces/new?hide_repo_select=true&ref=interview&repo=MohamedSamirEdris/DevHub-interview-kit      |
+| Technical lead  | `interview-lead` | https://github.com/codespaces/new?hide_repo_select=true&ref=interview-lead&repo=MohamedSamirEdris/DevHub-interview-kit |
 
 What happens automatically:
 
