@@ -2,44 +2,33 @@
 
 A realistic internal developer portal simulation inspired by [Backstage](https://backstage.io). DevHub helps engineers discover teams, browse the services catalog, search the estate, and review operational metrics.
 
-This repository is designed for technical interviews (60–90 minutes, live pairing, or take-home) across frontend, backend, full-stack, debugging, and architecture skills.
+This repository is designed for **technical lead** interviews (90–120 minutes live, or take-home).
 
-## Branches
+## Quick start (tech lead candidate)
 
-| Branch | Who | Contents |
-| ------ | --- | -------- |
-| **`main`** | Interviewers | Full kit + `ANSWERS_GUIDE.md` + `ANSWERS_GUIDE_LEAD.md` |
-| **`interview`** | IC candidates | `TASKS.md`, **no** answer guides — Codespaces |
-| **`interview-lead`** | Tech lead candidates | `TASKS_LEAD.md` (coding + **deployment** practical), **no** answer guides |
+**No local install required.** Open a Codespace on this branch (`interview-lead`):
 
-Send IC candidates **`interview`** and tech leads **`interview-lead`** — not `main`.
-
-## Interview quick start (interviewers)
-
-**Do not ask candidates to install PostgreSQL or MongoDB.** Use one of these:
-
-| Approach                        | Candidate needs                                                   | Command                                                                                          |
-| ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **GitHub Codespaces** (IC) | Browser + repo access | **[Open IC Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=interview&repo=MohamedSamirEdris/DevHub-interview-kit)** |
-| **GitHub Codespaces** (tech lead) | Browser + repo access | **[Open lead Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=interview-lead&repo=MohamedSamirEdris/DevHub-interview-kit)** |
-| **You host** (live interview)   | Nothing (screen share)                                            | You run `npm run interview`                                                                      |
-| **Docker** (take-home / remote) | [Docker Desktop](https://www.docker.com/products/docker-desktop/) | `npm run interview`                                                                              |
+| Approach              | Link                                                                                                                                         |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GitHub Codespaces** | **[Open Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=interview-lead&repo=MohamedSamirEdris/DevHub-interview-kit)** |
 
 ```bash
-# Docker (local)
-npm run interview
+# After the Codespace opens (if the app is not already running):
+npm run dev
 ```
+
+Then open port **5173** in the **Ports** tab.
 
 Login: `engineer@devhub.local` / `devhub123`
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MohamedSamirEdris/DevHub-interview-kit/tree/interview?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=interview-lead&repo=MohamedSamirEdris/DevHub-interview-kit)
 
-Codespaces is preconfigured with Node.js, PostgreSQL, MongoDB, npm dependencies, migrations, seed data, and auto-started dev servers. Candidates can work from the browser without installing anything locally.
+**Your assignment:** read **`TASKS_LEAD.md`** — practical coding, **deployment** tasks (Docker/CI/runbook), and architecture discussion.
 
-| Guide                     |                                                        |
-| ------------------------- | ------------------------------------------------------ |
-| Codespaces (step-by-step) | **[docs/CODESPACES.md](docs/CODESPACES.md)**           |
-| All interview options     | **[docs/INTERVIEW_SETUP.md](docs/INTERVIEW_SETUP.md)** |
+| Guide                |                                                  |
+| -------------------- | ------------------------------------------------ |
+| Codespaces           | **[docs/CODESPACES.md](docs/CODESPACES.md)**     |
+| Architecture context | **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** |
 
 ## Stack
 
@@ -134,8 +123,8 @@ devhub-interview-kit/
 │   └── shared-types/      # Shared TypeScript contracts
 ├── docs/                  # Onboarding & architecture notes
 ├── scripts/setup.sh
-├── TASKS.md               # Interview tasks (candidates)
-├── ANSWERS_GUIDE.md       # Interviewer-only solutions
+├── TASKS.md               # IC interview tasks (reference)
+├── TASKS_LEAD.md          # Technical lead interview (this session)
 └── package.json           # npm workspaces root
 ```
 
@@ -176,17 +165,15 @@ Copy from `apps/backend/.env.example`:
 
 ## Interview usage
 
-1. Give candidates access to the repo and the **`interview`** branch (Codespaces link above).
-2. Assign tasks from `TASKS.md` on that branch — they do not get `ANSWERS_GUIDE.md`.
-3. Observe how they navigate setup, reproduce issues, and communicate trade-offs.
-4. On **`main`**, use `ANSWERS_GUIDE.md` to score and debrief.
+1. Work from **`TASKS_LEAD.md`** (assigned sections from your interviewer).
+2. Reproduce issues before fixing; explain trade-offs and production impact.
+3. Deployment tasks use `docker/`, `docker-compose.yml`, and optional `docs/` deliverables.
+4. IC-level tasks in `TASKS.md` are optional reference — not required for this session.
 
 Suggested time boxes:
 
-- **60 min (IC):** Easy + 1–2 Medium tasks (`TASKS.md`)
-- **90 min (IC):** Medium focus + 1 Hard task
-- **90–120 min (tech lead):** `TASKS_LEAD.md` — 2 coding + 2 deployment + 2 discussion
-- **Take-home:** Full `TASKS.md` or `TASKS_LEAD.md` over 4–8 hours
+- **90 min:** 2× Part A coding + 2× Part B deployment + 2× Part C discussion
+- **Take-home:** 3× Part A + 3× Part B (include CI + runbook) + written Part C
 
 ## Troubleshooting
 
